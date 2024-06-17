@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -27,7 +26,7 @@ public class MyFrame extends Frame implements Runnable {
 	 * アニメーション用のスレッド
 	 */
 	Thread t;
-	public Color bgColor=new Color(255,255,255);
+	public Color bgColor=new Color(255,255,255); 
 	/**
 	 * ウィンドウを作成し、表示する。
 	 */
