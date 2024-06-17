@@ -11,15 +11,20 @@ public class Player extends Character implements KeyListener{
 			vx-=5;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			vx+=5;
+			vx=5;
+		}
+		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+			GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
+				
+			
 		}
 	}
 	public void keyReleased (KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
-			vx-=0;
+			vx=0;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			vx+=0;
+			vx=0;
 		}
 	}
 	public void keyTyped(KeyEvent e) {
