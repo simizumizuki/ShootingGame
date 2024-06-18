@@ -9,6 +9,12 @@ while(true) {
 	clear();
 	GameWorld.player.draw(this);
 	GameWorld.player.move();
+	movePlayerBullet();
+	sleep(0.03);
+}
+	}
+	
+public void movePlayerBullet() {
 	int i = 0;
 	while(i<GameWorld.playerBullets.size()) {
 		PlayerBullet b=GameWorld.playerBullets.get(i);
@@ -21,7 +27,7 @@ while(true) {
 			i++;
 		}
 	}
-	sleep(0.03);
+	
+
 }
-}
-}
+};

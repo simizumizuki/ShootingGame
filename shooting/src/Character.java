@@ -13,6 +13,6 @@ public void move() {
 }
 public void draw(MyFrame f) {
 	f.setColor(0,128,0);
-	f.fillRect(x, y, 30, 30);
+	f.fillOval(x, y, 30, 30);
 }
 }
