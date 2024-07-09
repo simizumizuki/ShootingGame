@@ -5,5 +5,10 @@ public class StraightEnemy extends Enemy{
 		super(x, y, vx, vy);
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
-
+	public void draw(MyFrame f) {
+		f.setColor(0, 0, 0);
+		f.fillRect(x+8, y, 14, 15);
+		f.setColor(0, 0, 0);
+		f.fillRect(x+10, y+15, 10, 15);
+	}
 }

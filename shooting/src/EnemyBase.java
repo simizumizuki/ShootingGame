@@ -10,6 +10,7 @@ public class EnemyBase extends Enemy{
 	}
 	public EnemyBase(double x, double y, double vx, double vy) {
 		super(x, y, vx, vy);
+		life = 20;
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	public void move() {
@@ -21,6 +22,12 @@ public class EnemyBase extends Enemy{
 		}
 		if(Math.random()<0.05) {
 			GameWorld.enemies.add(new RandomEnemy(x,y,0,1));
+		}
+		if(Math.random()<0.05) {
+			GameWorld.enemies.add(new DropEnemy(x,y,0,1));
+		}
+		if(Math.random()<0.05) {
+			GameWorld.enemies.add(new CurveEnemy(x,y,0,1));
 		}
 	}
 

@@ -13,22 +13,54 @@ while(true) {
 	GameWorld.player.move();
 	movePlayerBullet();
 	moveEnemies() ;
-	for(int i = 0;i<GameWorld.enemies.size();i++) {
-		Enemy e = GameWorld.enemies.get(i);
-		e.draw(this);
-		e.move();
-	}
+	cheakPlayerAndEnemies();
+	cheakPlayerBulletsAndEnemies() ;
 	sleep(0.03);
 }
+}
+public void cheakPlayerAndEnemies() {
+	for(int i =0;i<GameWorld.enemies.size();i++) {
+		Enemy e=GameWorld.enemies.get(i);
+		if(cheakHit(GameWorld.player,e)) {
+			System.out.println("やられた！");
+			GameWorld.player.y=-1000;
+		}
 	}
-	public void moveEnemies() {
+}
+public void cheakPlayerBulletsAndEnemies() {
+	int i = 0;
+	while(i<GameWorld.playerBullets.size()) {
+		PlayerBullet b = GameWorld.playerBullets.get(i);
+		int j = 0;
+		int hits = 0;
+		while(j<GameWorld.enemies.size()) {
+			Enemy e = GameWorld.enemies.get(j);
+			if(cheakHit(e,b)) {
+			   System.out.println("あたり！");
+			   hits++;
+			   e.life--;
+			}
+			if(e.life<=0) {
+			   GameWorld.enemies.remove(j);
+			   }else {
+			   j++;
+			   }
+		}
+		if(hits>0) {
+			GameWorld.playerBullets.remove(i);
+		}else {
+			i++;
+		}
+	
+	}
+}
+public void moveEnemies() {
 		for(int i = 0;i<GameWorld.enemies.size();i++) {
 			Enemy e = GameWorld.enemies.get(i);
 			e.draw(this);
 			e.move();
 		}
 	}
-	
 public void movePlayerBullet() {
 	int i = 0;
 	while(i<GameWorld.playerBullets.size()) {
@@ -41,8 +73,11 @@ public void movePlayerBullet() {
 		}else {
 			i++;
 		}
-	}
 	
-
 }
-};
+}
+public boolean cheakHit(Character a,Character b) {
+	return Math.abs(a.x-b.x)<=30 && Math.abs(a.y-b.y)<=30;
+}
+}
+
